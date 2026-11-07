@@ -26,7 +26,8 @@ src/main/java/com/lab/<dominio>/
 ├── repository/   Interfaz e implementación con lista en memoria
 ├── service/      Interfaz e implementación con la lógica de negocio
 ├── exception/    Excepción personalizada y manejador global de errores
-└── security/     Filtro que valida la API Key
+├── security/     Filtro que valida la API Key
+└── config/       Documentación OpenAPI (Swagger)
 src/test/java/...  Pruebas unitarias del service (JUnit 5 + Mockito)
 ```
 
@@ -74,7 +75,19 @@ mvn test               # pruebas unitarias
 mvn spring-boot:run    # levanta la API
 ```
 
-Ejemplo de solicitud:
+### Swagger
+
+Con la API levantada, la documentación interactiva queda disponible en:
+
+| API | URL |
+|---|---|
+| Profesores | http://localhost:8081/swagger-ui/index.html |
+| Proveedores | http://localhost:8082/swagger-ui/index.html |
+| Empleados | http://localhost:8083/swagger-ui/index.html |
+
+Para probar los endpoints, presione **Authorize**, ingrese la API Key correspondiente y luego use **Try it out** en cada endpoint.
+
+Ejemplo de solicitud con curl:
 
 ```bash
 curl -X POST http://localhost:8081/api/profesores \
